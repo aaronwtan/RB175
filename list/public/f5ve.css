@@ -1,0 +1,18 @@
+html {
+  font-family: 'Helvetica', 'sans-serif';
+  font-size: 18px;
+}
+
+h1 {
+  font: bold 1.5rem;
+  margin-bottom: 0;
+}
+
+ul {
+  margin-top: 0;
+  padding: 1rem;
+}
+
+p {
+  font-style: italic;
+}

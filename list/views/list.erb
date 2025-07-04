@@ -5,16 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Directory</title>
-    <link rel="stylesheet" href="5ive.css">
+    <%# <link rel="stylesheet" href="f5ve.css"> %>
 </head>
 
 <body>
+  <h1><a href="/">Directory</a></h1>
+
   <ul>
-    <% @contents.each do |file| %>
+    <% @files.each do |file| %>
     <li>
-      <a href="#"><%= file %></a>
+      <a href="<%= file %>" target="_blank"><%= file %></a>
     </li>
     <% end %>
   </ul>
+
+  <p>
+    <% if params[:sort] == 'asc' %>
+      <a href="/?sort=desc">Sort descending</a>
+    <% elsif params[:sort] == 'desc' %>
+      <a href="/?sort=asc">Sort ascending</a>
+    <% else %>
+      <a href="/?sort=asc">Sort ascending</a>
+      <a href="/?sort=desc">Sort descending</a>
+    <% end %>
+  </p>
 </body>
 </html>
