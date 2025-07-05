@@ -1,3 +1,34 @@
+<div class="card">
+  <h2><%= @name.capitalize %></h2>
+
+  <div class="email-section">
+    <h4>📧 Email Address</h4>
+    <p><%= @email %></p>
+  </div>
+
+  <div class="interests-section">
+    <h4>🎯 Interests</h4>
+    <div class="interests-tags">
+      <% @interests.each do |interest| %>
+        <span class="interest-tag"><%= interest.capitalize %></span>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="other-users-section">
+    <h4>👥 Other Users</h4>
+    <ul class="other-users-list">
+      <% @other_users.each do |other_user| %>
+        <li>
+          <a href="<%= other_user %>"><%= other_user.capitalize %></a>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<%
+=begin %>
 <h2><%= @name.capitalize %></h2>
 
 <section>
@@ -21,3 +52,5 @@
     <% end %>
   </ul>
 </section>
+<%
+=end %>

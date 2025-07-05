@@ -1,3 +1,18 @@
+<div class="card">
+  <h2>Our Community</h2>
+  <div class="user-grid">
+    <% @users.each_key do |user| %>
+      <div class="user-card">
+        <a href="/users/<%= user %>">
+          <%= user.capitalize %>
+        </a>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<%
+=begin %>
 <h2>Users</h2>
 <ul>
   <% @users.each_key do |user| %>
@@ -8,3 +23,5 @@
       </li>
   <% end %>
 </ul>
+<%
+=end %>
