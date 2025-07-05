@@ -27,6 +27,7 @@ end
 
 get "/search" do
   @results = chapters_matching(params[:query])
+  @total_results = total(@results)
 
   erb :search
 end
@@ -48,10 +49,6 @@ helpers do
 
   def highlight(text, term)
     text.gsub(term, "<strong>#{term}</strong>")
-  end
-
-  def total(results)
-    results.reduce(0) { |sum, result| sum + result[:paragraphs].size }
   end
 end
 
@@ -80,4 +77,8 @@ def chapters_matching(query)
   end
 
   results
+end
+
+def total(results)
+  results.reduce(0) { |sum, result| sum + result[:paragraphs].size }
 end
