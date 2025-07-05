@@ -19,7 +19,7 @@ get "/users" do
 end
 
 get "/users/:name" do
-  redirect "/users" unless @users.keys.include?(params[:name])
+  redirect "/users" unless @users.keys.include?(params[:name].to_sym)
 
   @name, @email, @interests, @other_users = parse_users
 
@@ -38,8 +38,12 @@ end
 
 def parse_users
   name = params[:name].to_sym
-  email = @users[name][:email]
-  interests = @users[name][:interests]
+  user_data = @users[name]
+
+  redirect "/users" unless user_data&.key?(:email) && user_data&.key?(:interests)
+
+  email = user_data[:email]
+  interests = user_data[:interests].is_a?(Array) ? user_data[:interests] : []
   other_users = @users.keys.reject { |user| user == name }
 
   [name, email, interests, other_users]
