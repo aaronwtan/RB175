@@ -19,9 +19,15 @@ get "/users" do
 end
 
 get "/users/:name" do
+  redirect "/users" unless @users.keys.include?(params[:name])
+
   @name, @email, @interests, @other_users = parse_users
 
   erb :user
+end
+
+not_found do
+  redirect "/users"
 end
 
 helpers do
