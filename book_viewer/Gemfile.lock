@@ -48,7 +48,7 @@ PLATFORMS
 DEPENDENCIES
   erubi
   pry
-  puma (~> 6.6)
+  puma
   rackup (~> 2.2)
   sinatra
   sinatra-contrib

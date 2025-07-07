@@ -20,7 +20,6 @@ end
 
 get "/users/:name" do
   redirect "/users" unless @users.keys.include?(params[:name].to_sym)
-
   @name, @email, @interests, @other_users = parse_users
 
   erb :user
